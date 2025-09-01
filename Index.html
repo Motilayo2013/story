@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinocchio Story</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Fredoka+One&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: "Baloo 2", sans-serif;
+      text-align: center;
+      background: linear-gradient(to bottom, #FFF5E1, #FFD9B5);
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      transition: background-color 0.5s ease;
+    }
+
+    img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      margin-bottom: 1.5rem;
+      transition: transform 0.6s ease;
+      border: 6px solid #fff;
+    }
+
+    img:hover {
+      transform: rotate(-3deg) scale(1.08);
+    }
+
+    h2 {
+      font-family: "Fredoka One", cursive;
+      color: #FF6B35;
+      font-size: 2.5rem;
+      margin: 0.8rem 0;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px #FFD580;
+    }
+
+    p {
+      max-width: 650px;
+      margin: 0 auto;
+      color: #333;
+      font-size: 1.3rem;
+      line-height: 1.8;
+      padding: 0 1rem;
+    }
+
+    .alt {
+      background: linear-gradient(to bottom, #FFDD8C, #FFC36F);
+    }
+
+    /* Fun fade-in + bounce animation */
+    section {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.9s ease-in-out;
+    }
+
+    section.show img {
+      animation: bounceIn 1s ease;
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section>
+    <img src="./images/slide1.png"  />
+    <h2>A Normal Day… or Not</h2>
+    <p>So today was supposed to be normal. But of course, nothing is ever normal in my life.”
+🎨 Illustration idea: Greg looking at his diary while his brother Manny draws on the walls.</p>
+  </section>
+
+  <section class="alt">
+    <img src="./images/slide2.png" />
+    <h2>The School Disaster</h2>
+    <p>At school, the cafeteria ran out of pizza. Do you know what they gave us instead? Broccoli casserole! I almost fainted.”
+🎨 Illustration idea: Greg holding a lunch tray with gross food while Rowley happily eats.</p>
+  </section>
+
+  <section>
+    <img src="./images/slide3.png" />
+    <h2>The PE Nightmare</h2>
+    <p>Then Coach made us run laps. Rowley tripped over his shoelace and I got blamed for it. Typical.”
+🎨 Illustration idea: Greg sweating while running, Rowley lying on the ground smiling.</p>
+  </section>
+
+  <section class="alt">
+    <img src="./images/slide4.png" />
+    <h2>Rodrick’s Evil Plan</h2>
+    <p>When I got home, Rodrick told Mom I broke his drumsticks. He even held a fake funeral for them. Guess who got grounded? (Hint: Me.)”
+🎨 Illustration idea: Rodrick crying dramatically over drumsticks while Greg looks annoyed.</p>
+  </section>
+
+  <section>
+    <img src="./images/slide5.png" />
+    <h2>The Big Embarrassment</h2>
+    <p>At the talent show, Mom made me play the ‘twinkle twinkle little star’ on stage. Rowley was my backup dancer. Everyone laughed… not in a good way.”
+🎨 Illustration idea: Greg on stage looking miserable, Rowley dancing happily in the background.</p>
+  </section>
+
+  <section class="alt">
+    <img src="./images/slide6.png" />
+    <h2>At Least I Have My Diary</h2>
+    <p>So yeah, worst day ever. But at least I’ve got this diary. If I survive middle school, it’ll be a miracle.”
+🎨 Illustration idea: Greg writing in his diary while chaos happens around him (Rodrick playing loud music, Manny throwing toys, Rowley waving from the window).</p>
+  </section>
+  <script>
+    // Reveal animation on scroll
+    const sections = document.querySelectorAll("section");
+    const reveal = () => {
+      const trigger = window.innerHeight * 0.8;
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect().top;
+        if (rect < trigger) {
+          sec.classList.add("show");
+        }
+      });
+    };
+    window.addEventListener("scroll", reveal);
+    reveal();
+  </script>
+</body>
+
+</html>
